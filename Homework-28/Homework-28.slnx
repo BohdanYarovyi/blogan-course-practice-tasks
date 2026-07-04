@@ -1,0 +1,17 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Task-01/Task-01.vcxproj" />
+  <Project Path="Task-02/Task-02.vcxproj" />
+  <Project Path="Task-03/Task-03.vcxproj" />
+  <Project Path="Task-04/Task-04.vcxproj" />
+  <Project Path="Task-05/Task-05.vcxproj" />
+  <Project Path="Task-06/Task-06.vcxproj" />
+  <Project Path="Task-07/Task-07.vcxproj" />
+  <Project Path="Task-08/Task-08.vcxproj" />
+  <Project Path="Task-09/Task-09.vcxproj" />
+  <Project Path="Task-10/Task-10.vcxproj" />
+  <Project Path="Task-11/Task-11.vcxproj" />
+</Solution>

@@ -1,0 +1,6 @@
+.vs
+
+x64/
+
+*.slnLaunch.user
+*.vcxproj.user
