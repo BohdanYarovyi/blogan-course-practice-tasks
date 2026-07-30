@@ -8,6 +8,27 @@
 */
 
 int main() {
+	constexpr int TEXT_MAX_LENGTH = 100;
 
+	char text[TEXT_MAX_LENGTH];
+	char replaceble_letter;
+	char new_letter;
+
+	std::cout << "Enter text: ";
+	std::cin.getline(text, TEXT_MAX_LENGTH);
+	std::cout << "Give a letter which you replace: ";
+	std::cin >> replaceble_letter;
+	std::cout << "Give new letter instead '" << replaceble_letter << "': ";
+	std::cin >> new_letter;
+
+	for (int i = 0; text[i] != '\0'; i++) {
+		char letter = text[i];
+
+		if (letter == replaceble_letter) {
+			text[i] = new_letter;
+		}
+	}
+
+	std::cout << "Edited sentence: " << text << std::endl;
 	return 0;
 }
