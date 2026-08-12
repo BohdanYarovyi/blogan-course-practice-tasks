@@ -1,0 +1,17 @@
+[
+	{
+		"label": "Build All Tasks",
+		"command": "/bin/bash",
+		"args": [
+			".zed/build.sh"
+		],
+		"use_new_terminal": false,
+		"allow_concurrent_runs": false,
+		"reveal": "always",
+		"reveal_target": "dock",
+		"hide": "never",
+		"shell": "system",
+		"show_summary": true,
+		"show_command": true
+	}
+]
