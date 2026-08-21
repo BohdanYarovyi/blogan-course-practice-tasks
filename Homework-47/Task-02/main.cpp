@@ -1,4 +1,5 @@
 #include <iostream>
+#include <numbers>
 
 /*
 Напишіть вбудовану функцію, яка рахує площу кола. Параметр - радіус. Повернення значення - площа.
@@ -19,5 +20,5 @@ int main()
 
 inline double get_circle_square(double radius)
 {
-	return 3.14 * radius * radius;
+	return std::numbers::pi * radius * radius;
 }
