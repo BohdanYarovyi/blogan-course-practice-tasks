@@ -1,81 +1,72 @@
 #include <iostream>
 #include <cassert>
 #include <sstream>
-#include <cmath>
 
 /*
-Зробіть попередні 4 функції з задачі 2 шаблонними.
+	Напишіть наступні варіанти функцій лінійного пошуку в масиві:
+
+	1. void FindAndTellResult(const int array[], int size, int value) - шукає і виводить інформацію про знаходження елементу на екран. Тобто якщо елемент є, то так і каже. Якщо немає - так і каже.
+	2. int FindIndex(const int array[], int size, int value) - шукає значення в масиві і повертає індекс елементу, який має це значення. Якщо значення немає - повертає значення -1.
+	3. bool Find(const int array[], int size, int value) - шукає значення в масиві. Якщо є - повертає true, інакше - false.
+	4. bool Find(const int array[], int size, const int keyNumbers[], int count) - шукає кожний елемент масиву keyNumbers в масиві array. Якщо всі елементи є (порядок не важливий) - повертає true. Якщо хоча б одного елементу немає - повертає false.
 */
 
-template <typename T>
-void find_and_tell_result(const T array[], int size, T value);
+void find_and_tell_result(const int array[], int size, int value);
 
-template <typename T>
-int find_index(const T array[], int size, T value);
+int find_index(const int array[], int size, int value);
 
-template <typename T>
-bool find(const T array[], int size, T value);
+bool find(const int array[], int size, int value);
 
-template <typename T>
-bool find(const T array[], int size, const T key_numbers[], int count);
+bool find(const int array[], int size, const int key_numbers[], int count);
 
 void run_tests()
 {
-    // --- 1. ТЕСТИ ДЛЯ INT ---
-    const int int_arr[5] = {10, 20, 30, 40, 50};
+    const int arr[6] = {10, 25, -5, 42, 0, 42};
+    const int size = 6;
 
-    assert(find_index(int_arr, 5, 30) == 2);
-    assert(find_index(int_arr, 5, 99) == -1);
-
-    assert(find(int_arr, 5, 10) == true);
-    assert(find(int_arr, 5, 100) == false);
-
-    const int int_keys_valid[2] = {20, 50};
-    const int int_keys_invalid[2] = {20, 99};
-    assert(find(int_arr, 5, int_keys_valid, 2) == true);
-    assert(find(int_arr, 5, int_keys_invalid, 2) == false);
-
-    // --- 2. ТЕСТИ ДЛЯ DOUBLE ---
-    const double double_arr[4] = {1.1, 2.2, 3.3, 4.4};
-
-    assert(find_index(double_arr, 4, 3.3) == 2);
-    assert(find_index(double_arr, 4, 9.9) == -1);
-
-    assert(find(double_arr, 4, 1.1) == true);
-    assert(find(double_arr, 4, 5.5) == false);
-
-    const double double_keys_valid[2] = {4.4, 1.1};
-    assert(find(double_arr, 4, double_keys_valid, 2) == true);
-
-    // --- 3. ТЕСТИ ДЛЯ CHAR ---
-    const char char_arr[4] = {'a', 'b', 'c', 'd'};
-
-    assert(find_index(char_arr, 4, 'c') == 2);
-    assert(find_index(char_arr, 4, 'z') == -1);
-
-    assert(find(char_arr, 4, 'a') == true);
-    assert(find(char_arr, 4, 'x') == false);
-
-    const char char_keys_valid[3] = {'d', 'b', 'a'};
-    assert(find(char_arr, 4, char_keys_valid, 3) == true);
-
-    // --- 4. ТЕСТ ДЛЯ find_and_tell_result (ПЕРЕХОПЛЕННЯ ПОТОКУ) ---
+    // --- 1. ТЕСТИ ДЛЯ find_and_tell_result ---
     {
         std::stringstream buffer;
         std::streambuf* old_cout = std::cout.rdbuf(buffer.rdbuf());
 
-        find_and_tell_result(int_arr, 5, 30);
-        assert(!buffer.str().empty());
+        // Перевірка, коли елемент існує
+        find_and_tell_result(arr, size, 25);
+        assert(!buffer.str().empty()); // Перевіряємо, що функція щось вивела
         buffer.str(""); buffer.clear();
 
-        find_and_tell_result(char_arr, 4, 'z');
+        // Перевірка, коли елемента немає
+        find_and_tell_result(arr, size, 99);
         assert(!buffer.str().empty());
         buffer.str(""); buffer.clear();
 
         std::cout.rdbuf(old_cout);
     }
 
-    std::cout << ">>> Усі тести для шаблонного пошуку успішно пройдено!\n";
+    // --- 2. ТЕСТИ ДЛЯ find_index ---
+    assert(find_index(arr, size, 10) == 0);   // Перший елемент
+    assert(find_index(arr, size, -5) == 2);   // Від'ємний елемент
+    assert(find_index(arr, size, 42) == 3);   // Перше входження дубльованого числа
+    assert(find_index(arr, size, 100) == -1); // Відсутній елемент
+
+    // --- 3. ТЕСТИ ДЛЯ find (пошук одного значення) ---
+    assert(find(arr, size, 42) == true);
+    assert(find(arr, size, 0) == true);
+    assert(find(arr, size, 777) == false);
+
+    // --- 4. ТЕСТИ ДЛЯ find (пошук масиву ключів key_numbers) ---
+    const int valid_keys1[3] = {25, 42, 10};
+    assert(find(arr, size, valid_keys1, 3) == true);
+
+    const int valid_keys2[1] = {-5};
+    assert(find(arr, size, valid_keys2, 1) == true);
+
+    const int invalid_keys1[3] = {25, 99, 10}; // 99 немає в масиві
+    assert(find(arr, size, invalid_keys1, 3) == false);
+
+    const int invalid_keys2[2] = {55, 66}; // Жодного немає
+    assert(find(arr, size, invalid_keys2, 2) == false);
+
+    std::cout << ">>> Усі тести для лінійного пошуку успішно пройдено!\n";
 }
 
 int main()
@@ -84,8 +75,7 @@ int main()
 	return 0;
 }
 
-template <typename T>
-void find_and_tell_result(const T array[], int size, T value)
+void find_and_tell_result(const int array[], int size, int value)
 {
 	for (int i = 0; i < size; i++)
 	{
@@ -99,8 +89,7 @@ void find_and_tell_result(const T array[], int size, T value)
 	std::cout << "Didn't find the element.\n";
 }
 
-template <typename T>
-int find_index(const T array[], int size, T value)
+int find_index(const int array[], int size, int value)
 {
 	for (int i = 0; i < size; i++)
 	{
@@ -113,8 +102,7 @@ int find_index(const T array[], int size, T value)
 	return -1;
 }
 
-template <typename T>
-bool find(const T array[], int size, T value)
+bool find(const int array[], int size, int value)
 {
 	for (int i = 0; i < size; i++)
 	{
@@ -127,8 +115,7 @@ bool find(const T array[], int size, T value)
 	return false;
 }
 
-template <typename T>
-bool find(const T array[], int size, const T key_numbers[], int count)
+bool find(const int array[], int size, const int key_numbers[], int count)
 {
 	for (int i = 0; i < count; i++)
 	{
