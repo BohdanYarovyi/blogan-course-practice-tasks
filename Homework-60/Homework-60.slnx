@@ -3,11 +3,11 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="Task-01/Task-01.vcxproj" />
-  <Project Path="Task-02/Task-02.vcxproj" />
-  <Project Path="Task-03/Task-03.vcxproj" />
-  <Project Path="Task-04/Task-04.vcxproj" />
-  <Project Path="Task-05/Task-05.vcxproj" />
-  <Project Path="Task-06/Task-06.vcxproj" />
-  <Project Path="Task-07/Task-07.vcxproj" />
+  <Project Path="Task-01/Task-01.vcxproj" Id="14e7836e-073f-4bcd-a0e6-2d3410db2f89" />
+  <Project Path="Task-02/Task-02.vcxproj" Id="35310d26-8d00-4ea5-be2c-55c129c64a09" />
+  <Project Path="Task-03/Task-03.vcxproj" Id="87dc8b28-b423-4355-937e-4ad9e6e41dbe" />
+  <Project Path="Task-04/Task-04.vcxproj" Id="a32bb977-a903-4fa0-9c4d-ce1fe7563d2a" />
+  <Project Path="Task-05/Task-05.vcxproj" Id="398751b4-07ca-4988-aff9-31ba842dca32" />
+  <Project Path="Task-06/Task-06.vcxproj" Id="d167b8f5-d979-4b9c-81d3-4f6758ed2460" />
+  <Project Path="Task-07/Task-07.vcxproj" Id="3d0b5a94-400d-40dd-80b4-af30f300c9a5" />
 </Solution>

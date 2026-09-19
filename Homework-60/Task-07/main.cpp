@@ -29,8 +29,52 @@
 
 */
 
+char* enter_string();
+
 int main()
 {
+	std::cout << "Enter your name: ";
+	const char* name = enter_string();
 
+	std::cout << "Enter your surname: ";
+	const char* surname = enter_string();
+
+	std::cout << "Welcome " << name << " " << surname << std::endl;
 	return 0;
+}
+
+int get_length(char* str)
+{
+	int length = 0;
+	while (str[length] != '\0')
+	{
+		length++;
+	}
+
+	return length;
+}
+
+void copy_string(char* destination, const char* source)
+{
+	int i;
+	for (i = 0; source[i] != '\0'; i++)
+	{
+		destination[i] = source[i];
+	}
+	destination[i] = '\0';
+}
+
+char* enter_string()
+{
+	const int BUFFER_SIZE = 256;
+	const int TERMINATE_SYMBOL_LENGTH = 1;
+	char buffer[BUFFER_SIZE] = {};
+
+	std::cin.getline(buffer, BUFFER_SIZE);
+	int length = get_length(buffer);
+
+	char* string = new char[length + TERMINATE_SYMBOL_LENGTH];
+	copy_string(string, buffer);
+	
+	return string;
 }
