@@ -1,0 +1,1 @@
+Since Blogan course doesn't exist on Youtube, I had to find a new way to learn cpp. The last lesson I have completed from the Blogan course was 63 'Struct'. So now all sketches and programs for studying will be stored here, in ./self-study folder.

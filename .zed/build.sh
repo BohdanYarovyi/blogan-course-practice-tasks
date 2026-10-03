@@ -1,19 +1,20 @@
 #!/bin/bash
 
-for task_file in "$ZED_WORKTREE_ROOT"/Homework-*/Task-*/main.cpp; do
-    homework=$(basename "$(dirname "$(dirname "$task_file")")")
-    task=$(basename "$(dirname "$task_file")")
+for task_file in \
+    "$ZED_WORKTREE_ROOT"/Homework-*/Task-*/main.cpp \
+    "$ZED_WORKTREE_ROOT"/self-study/*/main.cpp; do
+
+    [ -f "$task_file" ] || continue
+
     task_dir=$(dirname "$task_file")
+    rel_path="${task_dir#"$ZED_WORKTREE_ROOT"/}"
+    rel_lower=$(echo "$rel_path" | tr '[:upper:]' '[:lower:]')
 
-    homework_lower=$(echo "$homework" | tr '[:upper:]' '[:lower:]')
-    task_lower=$(echo "$task" | tr '[:upper:]' '[:lower:]')
-
-    out_dir="$ZED_WORKTREE_ROOT/zed-compiled/$homework_lower/$task_lower"
+    out_dir="$ZED_WORKTREE_ROOT/zed-compiled/$rel_lower"
     app="$out_dir/app"
 
     mkdir -p "$out_dir"
 
-    # Перевіряємо, чи app новіший за ВСІ .cpp файли в Task-#
     rebuild=false
 
     if [ ! -f "$app" ]; then
@@ -27,17 +28,15 @@ for task_file in "$ZED_WORKTREE_ROOT"/Homework-*/Task-*/main.cpp; do
         done
     fi
 
-    if [ "$rebuild" = false ]; then
-        echo "SKIP: $homework/$task"
-        continue
-    fi
+    [ "$rebuild" = true ] || continue
 
-    echo "Building $homework/$task..."
+    echo "Building $rel_path..."
 
-    # Збираємо main.cpp + всі інші .cpp у Task-#
     sources=("$task_dir"/*.cpp)
 
     g++ -std=c++20 -g "${sources[@]}" -o "$app" \
-        && echo "OK: $homework/$task" \
-        || echo "FAIL: $homework/$task"
+        && echo "OK: $rel_path" \
+        || echo "FAIL: $rel_path"
 done
+echo
+echo "--- Build was successfuly finished."
