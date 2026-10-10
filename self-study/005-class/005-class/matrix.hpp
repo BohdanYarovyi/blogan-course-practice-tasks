@@ -4,12 +4,14 @@
 class Matrix
 {
   private:
-	int m_rows;
-	int m_columns;
+	int		m_rows;
+	int		m_columns;
 	double* m_data;
 
   public:
 	Matrix(int rows, int columns);
+
+	Matrix(const Matrix& other);
 
 	~Matrix();
 
@@ -28,6 +30,8 @@ class Matrix
 	void fill(double value);
 
 	void print() const;
+
+	static Matrix identity(int size);
 };
 
 #endif
