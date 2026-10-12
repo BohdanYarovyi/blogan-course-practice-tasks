@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="007-static-methods-in-class/007-static-methods-in-class.vcxproj" />
+</Solution>

@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="006-static-field-in-class/006-static-field-in-class.vcxproj" />
+</Solution>
