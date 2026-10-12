@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="011-io-operators-overloading/011-io-operators-overloading.vcxproj" />
+</Solution>
