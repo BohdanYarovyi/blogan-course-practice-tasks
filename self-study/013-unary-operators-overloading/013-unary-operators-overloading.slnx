@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="013-unary-operators-overloading/013-unary-operators-overloading.vcxproj" />
+</Solution>

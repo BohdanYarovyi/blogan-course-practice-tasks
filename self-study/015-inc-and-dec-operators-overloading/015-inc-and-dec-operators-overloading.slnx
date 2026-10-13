@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="015-inc-and-dec-operators-overloading/015-inc-and-dec-operators-overloading.vcxproj" />
+</Solution>

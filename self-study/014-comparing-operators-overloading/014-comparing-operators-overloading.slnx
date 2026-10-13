@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="014-comparing-operators-overloading/014-comparing-operators-overloading.vcxproj" />
+</Solution>
