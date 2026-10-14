@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="017-parameter-operators-overloading/017-parameter-operators-overloading.vcxproj" />
+</Solution>

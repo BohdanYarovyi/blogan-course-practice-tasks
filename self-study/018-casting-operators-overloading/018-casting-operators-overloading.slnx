@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="018-casting-operators-overloading/018-casting-operators-overloading.vcxproj" />
+</Solution>
