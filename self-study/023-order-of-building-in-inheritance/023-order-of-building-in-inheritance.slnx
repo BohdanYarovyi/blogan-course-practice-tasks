@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="023-order-of-building-in-inheritance/023-order-of-building-in-inheritance.vcxproj" Id="e0661865-915d-41a0-801f-73c74710f883" />
+</Solution>
