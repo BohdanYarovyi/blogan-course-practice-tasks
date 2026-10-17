@@ -1,5 +1,7 @@
 #!/bin/bash
 
+LIB_DIR="$ZED_WORKTREE_ROOT/self-study/mylib"
+
 for task_file in \
     "$ZED_WORKTREE_ROOT"/Homework-*/Task-*/main.cpp \
     "$ZED_WORKTREE_ROOT"/self-study/*/main.cpp; do
@@ -20,8 +22,9 @@ for task_file in \
     if [ ! -f "$app" ]; then
         rebuild=true
     else
-        for source in "$task_dir"/*.cpp; do
-            if [ "$source" -nt "$app" ]; then
+        for source in "$task_dir"/*.cpp "$task_dir"/*.h "$task_dir"/*.hpp \
+                      "$LIB_DIR"/*.cpp "$LIB_DIR"/*.hpp; do
+            if [ -f "$source" ] && [ "$source" -nt "$app" ]; then
                 rebuild=true
                 break
             fi
@@ -32,11 +35,11 @@ for task_file in \
 
     echo "Building $rel_path..."
 
-    sources=("$task_dir"/*.cpp)
+    sources=("$task_dir"/*.cpp "$LIB_DIR"/*.cpp)
 
-    g++ -std=c++20 -g "${sources[@]}" -o "$app" \
+    g++ -std=c++20 -g -I"$LIB_DIR" "${sources[@]}" -o "$app" \
         && echo "OK: $rel_path" \
         || echo "FAIL: $rel_path"
 done
 echo
-echo "--- Build was successfuly finished."
+echo "--- Build was successfully finished."
