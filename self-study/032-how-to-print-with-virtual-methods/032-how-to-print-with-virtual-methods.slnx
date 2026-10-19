@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="032-how-to-print-with-virtual-methods/032-how-to-print-with-virtual-methods.vcxproj" />
+</Solution>

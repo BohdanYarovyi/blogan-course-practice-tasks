@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="031-abstract-classes-and-interfaces/031-abstract-classes-and-interfaces.vcxproj" />
+</Solution>
