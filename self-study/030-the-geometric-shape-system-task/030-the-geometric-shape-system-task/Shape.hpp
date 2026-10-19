@@ -2,19 +2,19 @@
 
 #include <iostream>
 
-#include "./../mylib/StringUtility.hpp"
+#include "./../../mylib/StringUtility.hpp"
 
 class Shape
 {
-  protected:
+protected:
 	char* name;
 
-  protected:
 	Shape(const char* name)
 	{
 		this-> name = StringUtility::copy(name);
 	}
 
+public:
 	virtual ~Shape()
 	{
 		delete[] name;

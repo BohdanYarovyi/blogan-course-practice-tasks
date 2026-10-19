@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="030-the-geometric-shape-system-task/030-the-geometric-shape-system-task.vcxproj" />
+</Solution>

@@ -7,13 +7,18 @@
 
 class Circle : public Shape
 {
-  protected:
+protected:
 	double radius;
 
-  public:
+public:
 	Circle(double radius)
 	    : Shape("Circle"), radius(radius)
 	{
+	}
+
+	double getRadius() const
+	{
+		return radius;
 	}
 
 	double diameter() const
@@ -33,6 +38,6 @@ class Circle : public Shape
 
 	virtual void print() const override
 	{
-		// todo:
+		std::cout << name << "(radius=" << radius << ", area=" << area() << ", perimeter=" << perimeter() << ")\n";
 	}
 };
