@@ -2,6 +2,7 @@
 #include <memory>
 
 #include "Fraction.hpp"
+#include "Human.hpp"
 
 class Item
 {
@@ -30,9 +31,13 @@ void printFraction(const Fraction* const ptr)
 
 int main()
 {
-	std::unique_ptr fraction = std::make_unique<Fraction>(7, 9);
+	//std::unique_ptr fraction = std::make_unique<Fraction>(7, 9);
 
-	printFraction(fraction.get());
+	//printFraction(fraction.get());
+
+	std::shared_ptr<Human> anton = std::make_shared<Human>("Anton");
+	std::shared_ptr<Human> ivan = std::make_shared<Human>("Ivan");
+	partnerUp(anton, ivan);
 
 	return 0;
 }
